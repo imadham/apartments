@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div style="float: left">
+    <a class="btn btn-outline-success" href="/apartments/find" role="button">Find Apartments</a>
+</div>
+</br>
+</br>
+
+<h2>Apartments</h2>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th style="width: 150px;" scope="col">Name</th>
+        <th style="width: 200px;" scope="col">Address</th>
+        <th style="width: 120px" scope="col">area</th>
+        <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="apartment : ${selections}">
+        <td>
+            <a th:href="@{/apartments/__${apartment.id}__}" th:text="${apartment.name}"/></a>
+        </td>
+        <td th:text="${apartment.address}"/>
+        <td th:text="${apartment.area}"/>
+        <td th:text="${apartment.price}"/>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
